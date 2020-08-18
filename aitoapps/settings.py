@@ -28,7 +28,7 @@ SECRET_KEY = '^h)t*uwdr)@h_5d5r^*c!q$3s_tmn09-jb!$*=k7_cwwsa#@#%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['34.71.250.38']
+ALLOWED_HOSTS = ['34.71.250.38', '34.120.41.29']
 
 
 # Application definition
@@ -128,5 +128,8 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# redirect all requests received via Http to Https
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
